@@ -13,11 +13,20 @@ var UIController = (function() {
 // Global App Controller
 var controller = (function(budgetCtrl, UICtrl) {
 
-    document.querySelector('.add__btn').addEventListener('click', function(){
-        
-        console.log('button was clicked');
+    var ctrlAddItem = function(){
+        console.log('It works');
+    }
+
+    document.querySelector('.add__btn').addEventListener('click', ctrlAddItem);
+
+    document.addEventListener('keypress', function(event){
+        if(event.keycode === 13 || event.which == 13) {
+            ctrlAddItem();
+        }
     });
 
 })(budgetController, UIController);
+
+
 
 
