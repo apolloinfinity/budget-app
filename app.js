@@ -1,8 +1,32 @@
 // Budget Controller
 var budgetController = (function () {
-    
+    var Expense = function (id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+
+    var Income = function (id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+
+
+    var data = {
+        allItems: {
+            exp: [],
+            inc: [],
+        },
+        totals : {
+            exp: 0,
+            inc: 0
+        }
+        
+    }
 
 })();
+
 
 // UI Controller
 var UIController = (function () {
@@ -52,8 +76,8 @@ var controller = (function (budgetCtrl, UICtrl) {
     };
 
     return {
-        init: function() {
-            console.log('App has started.');
+        init: function () {
+            // console.log('App has started.');
             setUpEventListeners();
         }
     }
