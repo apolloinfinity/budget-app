@@ -111,6 +111,17 @@ const UIController = (function () {
             // Used ES6 template literal for this part of the tut
 
         },
+        clearFields: function () {
+            let fields, fieldsArray;
+
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue)
+
+            fieldsArray = Array.prototype.slice.call(fields);
+
+            fieldsArray.forEach((current) => {
+                current.value = "";
+            })
+        },
         getDOMstrings: function () { return DOMstrings }
     }
 })();
@@ -142,9 +153,11 @@ const controller = (function (budgetCtrl, UICtrl) {
         // 3. Add the item to the UI
         UICtrl.addListItem(newItem, input.type);
 
-        // 4. Calculate the budget
+        // Clear the fields
+        UICtrl.clearFields();
+        // 5. Calculate the budget
 
-        // 5. Display the budget on the UI.
+        // 6. Display the budget on the UI.
 
         console.log('It works')
     }
